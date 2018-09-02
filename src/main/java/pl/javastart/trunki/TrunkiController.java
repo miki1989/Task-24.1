@@ -58,6 +58,8 @@ public class TrunkiController {
     public String trunkiWithS(Model model, @RequestParam String pattern) {
         List<Trunki> trunkiWithS = trunkiRepository.findAllByNameStartsWith("S%");
         model.addAttribute("trunkiswiths", trunkiWithS);
+
+        return "s";
     }
     @GetMapping("/trunki")
     public String trunek(Model model, @RequestParam String name){
