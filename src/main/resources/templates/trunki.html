@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style type="text/css">
+        .header {
+            background: aqua;
+            padding: 20px;
+            flex-direction: row;
+            display: flex;
+        }
+        .logo {
+            height: 80px;
+        }
+    </style>
+</head>
+<body>
+<div class="header">
+    <h1>Informacje na temat trunku</h1>
+</div>
+
+<h1 th:text="${trunki.name}">Trunek</h1>
+<p th:text="${trunki.description}">Opis trunku</p>
+
+</body>
+</html>

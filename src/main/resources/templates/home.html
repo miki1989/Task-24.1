@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Trunki</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+
+</head>
+<body>
+
+<div style="width:1000px; margin: auto">
+
+<table class="table">
+    <thead>
+    <tr>
+        <td><a th:href="' /home?sort=id&order=' + ${order}">ID</a></td>
+        <td><a th:href="' /home?sort=name&order=' + ${order}">Nazwa</a></td>
+        <td><a th:href="'/home?sort=volume&order=' + ${order}">Pojemność</a></td>
+        <td><a th:href="'/home?sort=voltage&order=' + ${order}">Woltaz</a></td>
+
+    </tr>
+    </thead>
+    <tbody>
+    <tr th:each="trunki: ${trunkis}">
+        <td th:text="${trunki.id}"></td>
+        <td><a th:text="${trunki.name}" th:href=" '/trunki?name=' + ${trunki.name}"></a></td>
+        <td th:text="${trunki.volume}" />
+        <td th:text="${trunki.voltage} + '%'"></td>
+    </tr>
+    </tbody>
+</table>
+    <h3>Dodaj trunek</h3>
+    <form action="/addAlcohol" method="post" th:object="${newAlco}">
+        <input type="text" placeholder="nazwa trunku" th:field="*{name}" />
+        <input type="number" placeholder="objętość" th:field="*{volume}" />
+        <input type="number"  placeholder="woltaż" th:field="*{voltage}" />
+        <input type="submit" value="Dodaj"/>
+
+    </form>
+</div>
+</body>
+</html>
